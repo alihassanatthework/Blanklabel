@@ -12,11 +12,18 @@ const COLLAGE: { id: CustomArtId; rotate: number; className: string; depth: numb
 ];
 
 /** Navy band promoting custom printed labels; collage parallaxes (max 20 px) and straightens on hover. */
-export function CustomBand({ eyebrow = "Not just blank labels", title = "Your brand, printed on our labels.", headingLevel = "h2", cta = true }: {
+export function CustomBand({
+  eyebrow = "Not just blank labels",
+  title = "Your brand, printed on our labels.",
+  headingLevel = "h2",
+  cta = true,
+  ctaHref = "/custom-labels",
+}: {
   eyebrow?: string;
   title?: string;
   headingLevel?: "h1" | "h2";
   cta?: boolean;
+  ctaHref?: string;
 }) {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
@@ -36,7 +43,7 @@ export function CustomBand({ eyebrow = "Not just blank labels", title = "Your br
             artwork, approve a proof and we print and ship from Charlotte, NC.
           </p>
           {cta && (
-            <ButtonLink href="/custom-labels" className="mt-7">
+            <ButtonLink href={ctaHref} className="mt-7">
               Get a quote
             </ButtonLink>
           )}

@@ -2,7 +2,7 @@
 
 import { animate, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { durations, ease } from "@/lib/motion";
+import { ease } from "@/lib/motion";
 
 /** Number roll on value change (300 ms). Instant swap under reduced motion. */
 export function AnimatedNumber({
@@ -43,7 +43,17 @@ export function AnimatedNumber({
 }
 
 /** Count up from 0 once when scrolled into view (stats rows). */
-export function CountUp({ value, format, className }: { value: number; format?: (n: number) => string; className?: string }) {
+export function CountUp({
+  value,
+  decimals = 0,
+  suffix = "",
+  className,
+}: {
+  value: number;
+  decimals?: number;
+  suffix?: string;
+  className?: string;
+}) {
   const ref = useRef<HTMLSpanElement>(null);
   const [shown, setShown] = useState(0);
   const reduce = useReducedMotion();
@@ -66,10 +76,10 @@ export function CountUp({ value, format, className }: { value: number; format?: 
     io.observe(el);
     return () => io.disconnect();
   }, [value, reduce]);
-  void durations;
   return (
     <span ref={ref} className={className} style={{ fontVariantNumeric: "tabular-nums" }}>
-      {(format ?? ((n: number) => Math.round(n).toLocaleString("en-US")))(shown)}
+      {shown.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}
+      {suffix}
     </span>
   );
 }
