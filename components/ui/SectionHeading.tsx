@@ -28,7 +28,7 @@ export function SectionHeading({
           <p
             className={cn(
               "mb-2 text-xs font-semibold tracking-[0.14em] uppercase",
-              invert ? "text-action-500" : "text-action-600",
+              invert ? "text-action-bright" : "text-action-600",
             )}
           >
             {eyebrow}

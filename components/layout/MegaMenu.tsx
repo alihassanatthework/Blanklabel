@@ -47,11 +47,11 @@ export function ShopMenuPanel() {
         href="/printer-finder"
         className="group flex flex-col justify-between rounded-[16px] bg-navy-900 p-5 text-white"
       >
-        <Printer aria-hidden className="size-8 text-action-500" strokeWidth={1.75} />
+        <Printer aria-hidden className="size-8 text-action-bright" strokeWidth={1.75} />
         <span>
           <span className="mt-6 block text-xs font-semibold tracking-[0.12em] text-white/60 uppercase">Not sure?</span>
           <span className="mt-1 block font-[family-name:var(--font-jakarta)] text-lg font-bold">Find labels for your printer</span>
-          <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-action-500">
+          <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-action-bright">
             Open printer finder
             <ArrowRight aria-hidden className="size-4 transition-transform motion-safe:group-hover:translate-x-1" />
           </span>

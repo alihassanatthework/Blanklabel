@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import * as m from "motion/react-m";
+import { useReducedMotion } from "motion/react";
+import { useEffect, useRef } from "react";
 import { ButtonLink } from "@/components/ui/Button";
 import { CustomLabelArt, type CustomArtId } from "./CustomLabelArt";
 
@@ -26,15 +27,44 @@ export function CustomBand({
   ctaHref?: string;
 }) {
   const ref = useRef<HTMLElement>(null);
+  const layers = useRef<(HTMLDivElement | null)[]>([]);
   const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const p = useTransform(scrollYProgress, [0, 1], [1, -1]);
   const H = headingLevel;
+
+  // Parallax: progress -1..1 as the band crosses the viewport; transform-only, rAF-throttled, off under reduced motion.
+  useEffect(() => {
+    if (reduce) {
+      layers.current.forEach((el) => el && (el.style.transform = ""));
+      return;
+    }
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const el = ref.current;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const p = Math.max(-1, Math.min(1, 1 - (2 * (r.top + r.height)) / (vh + r.height)));
+      layers.current.forEach((l, i) => l && (l.style.transform = `translate3d(0, ${(-p * COLLAGE[i].depth).toFixed(1)}px, 0)`));
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [reduce]);
+
   return (
     <section ref={ref} aria-labelledby="custom-title" className="overflow-hidden bg-navy-900 text-white">
       <div className="container-x grid items-center gap-10 py-14 lg:grid-cols-2 lg:py-20">
         <div>
-          <p className="mb-3 text-xs font-semibold tracking-[0.14em] text-action-500 uppercase">{eyebrow}</p>
+          <p className="mb-3 text-xs font-semibold tracking-[0.14em] text-action-bright uppercase">{eyebrow}</p>
           <H id="custom-title" className={H === "h1" ? "text-h1 text-white" : "text-h2 text-white"}>
             {title}
           </H>
@@ -49,39 +79,26 @@ export function CustomBand({
           )}
         </div>
         <div className="relative mx-auto aspect-[5/4] w-full max-w-[520px]">
-          {COLLAGE.map((c) => (
-            <Parallax key={c.id} progress={p} depth={reduce ? 0 : c.depth} className={`absolute ${c.className}`}>
-              <motion.div
+          {COLLAGE.map((c, i) => (
+            <div
+              key={c.id}
+              ref={(el) => {
+                layers.current[i] = el;
+              }}
+              className={`absolute will-change-transform ${c.className}`}
+            >
+              <m.div
                 initial={{ rotate: c.rotate }}
                 animate={{ rotate: c.rotate }}
                 whileHover={{ rotate: 0, scale: 1.03 }}
                 transition={{ duration: 0.22 }}
               >
                 <CustomLabelArt id={c.id} />
-              </motion.div>
-            </Parallax>
+              </m.div>
+            </div>
           ))}
         </div>
       </div>
     </section>
-  );
-}
-
-function Parallax({
-  progress,
-  depth,
-  className,
-  children,
-}: {
-  progress: ReturnType<typeof useTransform<number, number>>;
-  depth: number;
-  className: string;
-  children: React.ReactNode;
-}) {
-  const y = useTransform(progress, (v) => v * depth);
-  return (
-    <motion.div style={{ y }} className={className}>
-      {children}
-    </motion.div>
   );
 }

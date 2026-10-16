@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { CalendarClock, MapPin, Package, Printer as PrinterIcon, RefreshCw, ShoppingCart, Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
+import { toast } from "@/lib/toast";
 import { useCatalog } from "@/components/layout/CatalogProvider";
 import { ProductVisual, visualProps } from "@/components/product/ProductVisual";
 import { Badge } from "@/components/ui/Badge";

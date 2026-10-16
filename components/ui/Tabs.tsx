@@ -1,7 +1,7 @@
 "use client";
 
 import * as T from "@radix-ui/react-tabs";
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 import { useId, useState } from "react";
 import { durations, ease } from "@/lib/motion";
 import { cn } from "@/lib/utils";
@@ -54,7 +54,7 @@ export function Tabs({
           >
             {t.label}
             {value === t.id && (
-              <motion.span
+              <m.span
                 layoutId={`tab-underline-${uid}`}
                 className="absolute inset-x-2 -bottom-px h-[3px] rounded-full bg-action-500"
                 transition={{ duration: durations.base, ease: ease.out }}
@@ -66,7 +66,7 @@ export function Tabs({
       {tabs.map(
         (t) =>
           t.content !== undefined && (
-            <T.Content key={t.id} value={t.id} className="pt-6 focus-visible:outline-none">
+            <T.Content key={t.id} value={t.id} className="pt-6 focus-visible:ring-[3px] focus-visible:ring-navy-700/25 focus-visible:outline-none">
               {t.content}
             </T.Content>
           ),

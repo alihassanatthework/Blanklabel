@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "sonner";
+import { toast } from "@/lib/toast";
 import type { z } from "zod";
 import { SuccessCheck } from "./FormSuccess";
 import { Button } from "@/components/ui/Button";
@@ -29,7 +29,7 @@ export function NewsletterForm() {
         <SuccessCheck className="size-12 shrink-0" />
         <div>
           <p className="font-semibold text-white">You&apos;re subscribed. Use code</p>
-          <p className="mt-1 inline-block rounded-[8px] border border-dashed border-white/50 px-3 py-1 font-mono text-lg font-bold tracking-wider text-action-500">
+          <p className="mt-1 inline-block rounded-[8px] border border-dashed border-white/50 px-3 py-1 font-mono text-lg font-bold tracking-wider text-action-bright">
             {code}
           </p>
           <DemoNote className="mt-2 text-white/70" />

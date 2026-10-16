@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import * as m from "motion/react-m";
+import { useReducedMotion } from "motion/react";
 import { DemoNote } from "@/components/ui/misc";
 import { cn } from "@/lib/utils";
 
@@ -9,7 +10,7 @@ export function SuccessCheck({ className }: { className?: string }) {
   const reduce = useReducedMotion();
   return (
     <svg viewBox="0 0 52 52" className={cn("size-14", className)} aria-hidden>
-      <motion.circle
+      <m.circle
         cx="26"
         cy="26"
         r="24"
@@ -20,7 +21,7 @@ export function SuccessCheck({ className }: { className?: string }) {
         animate={{ pathLength: 1 }}
         transition={{ duration: 0.5 }}
       />
-      <motion.path
+      <m.path
         d="M15 27l7 7 15-16"
         fill="none"
         stroke="var(--color-teal-600)"

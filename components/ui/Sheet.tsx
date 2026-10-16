@@ -2,7 +2,8 @@
 
 import * as D from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import * as m from "motion/react-m";
+import { AnimatePresence, useReducedMotion } from "motion/react";
 import { spring } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
@@ -56,7 +57,7 @@ export function Sheet({
         {open && (
           <D.Portal forceMount>
             <D.Overlay asChild forceMount>
-              <motion.div
+              <m.div
                 className="fixed inset-0 z-[60] bg-navy-900/45 backdrop-blur-[2px]"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -65,7 +66,7 @@ export function Sheet({
               />
             </D.Overlay>
             <D.Content asChild forceMount aria-describedby={description ? undefined : undefined}>
-              <motion.div
+              <m.div
                 className={cn("fixed z-[61] flex flex-col bg-white shadow-lg focus:outline-none", pos, className)}
                 initial={reduce ? { opacity: 0 } : offscreen}
                 animate={reduce ? { opacity: 1 } : onscreen}
@@ -93,7 +94,7 @@ export function Sheet({
                 </div>
                 <div className="min-h-0 flex-1 overflow-y-auto">{children}</div>
                 {footer && <div className="border-t border-line p-5">{footer}</div>}
-              </motion.div>
+              </m.div>
             </D.Content>
           </D.Portal>
         )}

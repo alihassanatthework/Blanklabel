@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BoughtTogether } from "@/components/product/BoughtTogether";
 import { BuyBox } from "@/components/product/BuyBox";
+import { ProductHeader } from "@/components/product/ProductHeader";
 import { ProductCarousel } from "@/components/product/ProductCarousel";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { ProductTabs } from "@/components/product/ProductTabs";
@@ -52,7 +53,10 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
         <Breadcrumbs items={crumbs} />
         <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-12">
           <ProductGallery product={p} />
-          <BuyBox product={p} site={site} />
+          <div>
+            <ProductHeader product={p} />
+            <BuyBox product={p} site={site} />
+          </div>
         </div>
 
         <div id="details" className="mt-14 scroll-mt-24">

@@ -9,7 +9,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Providers } from "@/components/layout/Providers";
 import { getAllProducts, getCategories, getSiteConfig } from "@/lib/data";
-import { SITE_URL } from "@/lib/config";
+import { NOINDEX, SITE_URL } from "@/lib/config";
 import { organizationJsonLd, websiteJsonLd, JsonLd } from "@/lib/seo";
 import "./globals.css";
 
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   description:
     "Factory-direct 4x6 shipping labels, thermal rolls, fanfold, integrated and sheet labels. Made in Charlotte, NC. Free US shipping and our Price Beat Promise.",
   // Demo deployment is a preview - keep it out of search indexes.
-  robots: { index: false, follow: false },
+  robots: NOINDEX ? { index: false, follow: false } : { index: true, follow: true },
   openGraph: { siteName: "BlankLabels.com", type: "website", locale: "en_US" },
 };
 

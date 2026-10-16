@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Check, Tag, Trash2, Truck, X } from "lucide-react";
 import { useState } from "react";
-import { toast } from "sonner";
+import { toast } from "@/lib/toast";
 import { useCatalog } from "@/components/layout/CatalogProvider";
 import { ProductVisual, visualProps } from "@/components/product/ProductVisual";
 import { AnimatedNumber } from "@/components/ui/AnimatedNumber";

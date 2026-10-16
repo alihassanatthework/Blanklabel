@@ -60,7 +60,7 @@ export function Hero({ printers, site }: { printers: Printer[]; site: SiteConfig
         <div className="relative hidden sm:block lg:col-span-6">
           <div className="relative mx-auto aspect-[6/5] max-w-[560px] lg:-mr-4">
             <div className="hero-float absolute top-[2%] left-[4%] w-[62%] drop-shadow-[0_24px_30px_rgba(11,31,58,0.14)]">
-              <ProductVisual format="fanfold" widthIn={4} lengthIn={6} size="lg" accent="var(--color-action-500)" />
+              <ProductVisual format="fanfold" widthIn={4} lengthIn={6} size="lg" accent="var(--color-action-bright)" />
               <div aria-hidden className="hero-feed absolute top-[38%] left-[52%] w-[26%]">
                 <svg viewBox="0 0 40 60" className="w-full drop-shadow-md">
                   <rect x="0.5" y="0.5" width="39" height="59" rx="3" fill="#fff" stroke="#DCE3EC" />

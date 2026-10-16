@@ -56,7 +56,7 @@ export function MaterialsTeaser() {
               key={c.id}
               className={cn(
                 "p-6 transition-[border-color,box-shadow,opacity] duration-200 sm:p-8",
-                active === c.id ? "border-navy-700 shadow-lg ring-1 ring-navy-700" : "opacity-70",
+                active === c.id ? "border-navy-700 shadow-lg ring-1 ring-navy-700" : "bg-bg shadow-none",
               )}
             >
               <h3 className="text-h3">{c.title}</h3>

@@ -3,11 +3,10 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { BadgeDollarSign, Check, GitCompareArrows, Heart, ShoppingCart, Truck } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import * as m from "motion/react-m";
+import { AnimatePresence } from "motion/react";
 import { Suspense, useEffect, useRef, useState } from "react";
-import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { Stars } from "@/components/ui/misc";
 import { Stepper } from "@/components/ui/Stepper";
 import { lineTotal } from "@/lib/pricing";
 import { toggleCompare, toggleWishlist } from "@/lib/store/actions";
@@ -17,7 +16,6 @@ import { flyToCart, useHydrated, useUi } from "@/lib/store/ui";
 import { useWishlist } from "@/lib/store/wishlist";
 import { cn, formatInt, money } from "@/lib/utils";
 import type { Product, SiteConfig } from "@/types";
-import { CompatibilityChips } from "./CompatibilityChips";
 import { PriceBlock } from "./PriceBlock";
 import { QuantityTierSelector } from "./QuantityTierSelector";
 
@@ -73,29 +71,7 @@ function BuyBoxInner({ product: p, site, initialQty }: { product: Product; site:
 
   return (
     <div>
-      <div className="flex flex-wrap gap-1.5">
-        {p.badges.map((b) => (
-          <Badge key={b} variant={b} />
-        ))}
-      </div>
-      <h1 className="text-h2 mt-3 lg:text-[34px]">{p.name}</h1>
-      <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-ink-600">
-        <span>
-          SKU <span className="font-medium text-ink-900">{p.sku}</span>
-        </span>
-        <a href="#details" className="flex items-center gap-1.5 hover:text-navy-700">
-          <Stars rating={p.rating} size={15} />
-          {p.rating} ({formatInt(p.reviewCount)} reviews · demo)
-        </a>
-      </div>
-      <p className="mt-4 text-ink-600">{p.description}</p>
-
-      <div className="mt-5">
-        <p className="mb-2 text-sm font-semibold text-navy-900">Fits these printers</p>
-        <CompatibilityChips printers={p.printers} size="md" />
-      </div>
-
-      <div className="mt-6 border-t border-dashed border-line pt-6">
+      <div className="border-t border-dashed border-line pt-6">
         <p className="mb-3 text-sm font-semibold text-navy-900">
           Choose a quantity <span className="font-normal text-ink-600">({formatInt(p.labelsPerUnit)} labels per {p.unitName})</span>
         </p>
@@ -111,13 +87,13 @@ function BuyBoxInner({ product: p, site, initialQty }: { product: Product; site:
         <Button ref={btnRef} onClick={(e) => addToCart(e.currentTarget)} className="min-w-[180px] flex-1 overflow-hidden" aria-live="polite">
           <AnimatePresence mode="wait" initial={false}>
             {added ? (
-              <motion.span key="ok" className="flex items-center gap-2" initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
+              <m.span key="ok" className="flex items-center gap-2" initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
                 <Check aria-hidden className="size-5" strokeWidth={3} /> Added
-              </motion.span>
+              </m.span>
             ) : (
-              <motion.span key="add" className="flex items-center gap-2" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.2 }}>
+              <m.span key="add" className="flex items-center gap-2" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.2 }}>
                 <ShoppingCart aria-hidden className="size-5" /> Add to cart
-              </motion.span>
+              </m.span>
             )}
           </AnimatePresence>
         </Button>

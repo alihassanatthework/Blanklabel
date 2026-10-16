@@ -1,9 +1,10 @@
 "use client";
 
 import { ArrowLeft, BookmarkPlus, Check, Info, Printer as PrinterIcon, RotateCcw } from "lucide-react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import * as m from "motion/react-m";
+import { AnimatePresence, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
+import { toast } from "@/lib/toast";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
@@ -81,12 +82,12 @@ export function PrinterFinderWizard({ printers }: { printers: Printer[] }) {
           aria-valuemax={3}
           aria-valuenow={step}
         >
-          <motion.div className="h-full rounded-full bg-action-500" animate={{ width: `${step === 3 ? 100 : progress}%` }} transition={{ duration: 0.25 }} />
+          <m.div className="h-full rounded-full bg-action-500" animate={{ width: `${step === 3 ? 100 : progress}%` }} transition={{ duration: 0.25 }} />
         </div>
 
         <div className="relative mt-6 overflow-hidden">
           <AnimatePresence mode="wait" initial={false}>
-            <motion.div
+            <m.div
               key={step}
               initial={{ opacity: 0, x: reduce ? 0 : 40 }}
               animate={{ opacity: 1, x: 0 }}
@@ -213,7 +214,7 @@ export function PrinterFinderWizard({ printers }: { printers: Printer[] }) {
                   </div>
                 </div>
               )}
-            </motion.div>
+            </m.div>
           </AnimatePresence>
         </div>
       </div>

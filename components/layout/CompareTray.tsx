@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { X } from "lucide-react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import * as m from "motion/react-m";
+import { AnimatePresence, useReducedMotion } from "motion/react";
 import { ProductVisual, visualProps } from "@/components/product/ProductVisual";
 import { COMPARE_MAX, useCompare } from "@/lib/store/compare";
 import { useHydrated } from "@/lib/store/ui";
@@ -23,7 +24,7 @@ export function CompareTray() {
   return (
     <AnimatePresence>
       {show && (
-        <motion.aside
+        <m.aside
           aria-label="Compare products"
           initial={{ opacity: 0, y: reduce ? 0 : 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -58,7 +59,7 @@ export function CompareTray() {
               Compare ({items.length})
             </Link>
           </div>
-        </motion.aside>
+        </m.aside>
       )}
     </AnimatePresence>
   );

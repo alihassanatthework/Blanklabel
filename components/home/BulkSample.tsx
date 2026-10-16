@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, BadgeCheck, FileText, Headset, Package } from "lucide-react";
-import { SampleForm } from "@/components/forms/SampleForm";
+import { LazySampleForm } from "@/components/forms/LazyForms";
 import { Reveal } from "@/components/ui/Reveal";
 
 export const BULK_BENEFITS = [
@@ -47,7 +47,7 @@ export function BulkSample() {
           <div className="p-6 sm:p-10">
             <h3 className="text-h3">Request a free sample pack</h3>
             <p className="mt-2 mb-6 text-ink-600">Test our labels in your printer before you stock up.</p>
-            <SampleForm idPrefix="home-sample" />
+            <LazySampleForm idPrefix="home-sample" />
           </div>
         </Reveal>
       </div>

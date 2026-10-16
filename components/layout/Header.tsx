@@ -4,7 +4,8 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Heart, Menu, Search, ShoppingCart, User } from "lucide-react";
-import { motion, useReducedMotion } from "motion/react";
+import * as m from "motion/react-m";
+import { useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { NAV_LINKS } from "@/lib/nav";
 import { useCart } from "@/lib/store/cart";
@@ -174,7 +175,7 @@ export function Header() {
               ))}
             </ul>
             {open && (
-              <motion.div
+              <m.div
                 ref={panelRef}
                 id={`menu-${open}`}
                 key={open}
@@ -189,7 +190,7 @@ export function Header() {
                 <div className="container-x py-8">
                   {open === "shop" ? <ShopMenuPanel /> : <PrinterMenuPanel />}
                 </div>
-              </motion.div>
+              </m.div>
             )}
           </nav>
 
@@ -207,7 +208,7 @@ export function Header() {
             <IconButton id="cart-button" label={`Cart (${hydrated ? cartCount : 0} items)`} onClick={() => setCartOpen(true)}>
               <ShoppingCart aria-hidden className="size-5" strokeWidth={1.75} />
               {hydrated && cartCount > 0 && (
-                <motion.span
+                <m.span
                   key={cartVersion}
                   initial={reduce ? false : { scale: 1 }}
                   animate={{ scale: [1, 1.25, 1] }}
@@ -215,7 +216,7 @@ export function Header() {
                   className="absolute -top-0.5 -right-0.5"
                 >
                   <CountBadge n={cartCount} tone="orange" static />
-                </motion.span>
+                </m.span>
               )}
             </IconButton>
             <IconButton label="Open menu" className="lg:hidden" onClick={() => setNavOpen(true)}>

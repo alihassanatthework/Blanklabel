@@ -1,6 +1,6 @@
 "use client";
 
-import { toast } from "sonner";
+import { toast } from "@/lib/toast";
 import { useCompare, COMPARE_MAX } from "./compare";
 import { useWishlist } from "./wishlist";
 

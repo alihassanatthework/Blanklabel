@@ -1,7 +1,7 @@
 "use client";
 
 import * as Slider from "@radix-ui/react-slider";
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 import { useState } from "react";
 import { ProductVisual, visualProps } from "@/components/product/ProductVisual";
 import { AnimatedNumber } from "@/components/ui/AnimatedNumber";
@@ -114,7 +114,7 @@ export function PricingExplainer({ product: p }: { product: Product }) {
               </span>
             </div>
             <div className="mt-2 h-2.5 overflow-hidden rounded-full bg-navy-50" aria-hidden>
-              <motion.div
+              <m.div
                 className="h-full origin-left rounded-full bg-teal-600"
                 style={{ width: "100%" }}
                 initial={false}

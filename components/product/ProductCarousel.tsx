@@ -40,9 +40,9 @@ export function ProductCarousel({ products, label }: { products: Product[]; labe
   return (
     <div role="region" aria-roledescription="carousel" aria-label={label}>
       <div ref={ref} className="-mx-2 overflow-hidden px-2 py-2">
-        <ul className="-ml-4 flex touch-pan-y lg:-ml-6">
+        <div className="-ml-4 flex touch-pan-y lg:-ml-6">
           {products.map((p, i) => (
-            <li
+            <div
               key={p.id}
               role="group"
               aria-roledescription="slide"
@@ -50,9 +50,9 @@ export function ProductCarousel({ products, label }: { products: Product[]; labe
               className="min-w-0 shrink-0 grow-0 basis-[77%] pl-4 sm:basis-[45%] lg:basis-1/4 lg:pl-6"
             >
               <ProductCard product={p} />
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
       <div className="mt-6 flex items-center justify-between gap-4">
         <div className="flex gap-1">

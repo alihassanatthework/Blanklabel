@@ -14,7 +14,6 @@ import type {
   SiteConfig,
 } from "@/types";
 import { buildFacets, filterProducts } from "@/lib/filters";
-import { createSearch } from "@/lib/search";
 import { categories, findByPath, leafIdsOf } from "./categories";
 import { faqs, materials, news, printers, reviews, site, swatches } from "./content";
 import { productById, productBySlug, products } from "./products";
@@ -64,9 +63,13 @@ export async function getPrinters(): Promise<Printer[]> {
   return printers;
 }
 
-let searcher: ReturnType<typeof createSearch> | null = null;
+let searcher: ((q: string) => SearchResult[]) | null = null;
 export async function searchCatalog(q: string): Promise<SearchResult[]> {
-  searcher ??= createSearch(products, categories);
+  // The search engine (Fuse.js) loads on first use, keeping it out of the initial bundle.
+  if (!searcher) {
+    const { createSearch } = await import("@/lib/search");
+    searcher = createSearch(products, categories);
+  }
   return searcher(q);
 }
 

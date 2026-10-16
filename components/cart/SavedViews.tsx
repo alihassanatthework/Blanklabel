@@ -82,7 +82,7 @@ export function CompareView() {
           <caption className="sr-only">Product comparison</caption>
           <thead className="sticky top-0 z-10 bg-white">
             <tr className="border-b border-line">
-              <td className="w-40 p-4" />
+              <td className="w-28 p-4 sm:w-40" />
               {items.map((p) => (
                 <th key={p.id} scope="col" className="p-4 align-top">
                   <div className="relative">

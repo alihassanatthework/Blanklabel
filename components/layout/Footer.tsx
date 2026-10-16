@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { CreditCard, Flag, Mail, MapPin, Phone, Smartphone, Wallet } from "lucide-react";
-import { NewsletterForm } from "@/components/forms/NewsletterForm";
+import { LazyNewsletterForm } from "@/components/forms/LazyForms";
 import { getCategories, getSiteConfig } from "@/lib/data";
 import { categoryHref } from "@/lib/data/categories";
 import { FOOTER_COMPANY, FOOTER_HELP } from "@/lib/nav";
@@ -37,7 +37,7 @@ export async function Footer() {
             </h2>
             <p className="mt-2 text-white/70">Label tips, restock reminders and member-only pricing. No spam.</p>
           </div>
-          <NewsletterForm />
+          <LazyNewsletterForm />
         </div>
       </section>
 

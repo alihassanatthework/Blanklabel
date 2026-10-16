@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import * as m from "motion/react-m";
+import { useReducedMotion } from "motion/react";
 import { durations, ease, reveal, staggerDelay } from "@/lib/motion";
 
 type Tag = "div" | "section" | "li" | "article" | "ul";
@@ -25,7 +26,7 @@ export function Reveal({
   id?: string;
 }) {
   const reduce = useReducedMotion();
-  const M = motion[as];
+  const M = m[as];
   const d = delay + (index != null && !reduce ? staggerDelay(index) : 0);
   return (
     <M

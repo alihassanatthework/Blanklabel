@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { Phone, X } from "lucide-react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import * as m from "motion/react-m";
+import { AnimatePresence, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 import { loops } from "@/lib/motion";
 import { useCatalog } from "./CatalogProvider";
@@ -44,7 +45,7 @@ export function AnnouncementBar() {
       <div className="container-x flex h-9 items-center justify-center text-[13px]">
         <div className="relative flex h-full flex-1 items-center justify-center overflow-hidden" aria-live="polite">
           <AnimatePresence mode="wait" initial={false}>
-            <motion.div
+            <m.div
               key={msg.text}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -58,7 +59,7 @@ export function AnnouncementBar() {
               ) : (
                 <span className="font-medium">{msg.text}</span>
               )}
-            </motion.div>
+            </m.div>
           </AnimatePresence>
         </div>
         <a

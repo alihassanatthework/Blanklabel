@@ -1,7 +1,8 @@
 "use client";
 
 import { ArrowUp } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import * as m from "motion/react-m";
+import { AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 
 /** Appears after 800 px of scroll; smooth-scrolls up. */
@@ -16,7 +17,7 @@ export function BackToTop() {
   return (
     <AnimatePresence>
       {show && (
-        <motion.button
+        <m.button
           type="button"
           aria-label="Back to top"
           initial={{ opacity: 0 }}
@@ -31,7 +32,7 @@ export function BackToTop() {
           className="fixed right-4 bottom-24 z-20 flex size-12 items-center justify-center rounded-full border border-line bg-white text-navy-700 shadow-md hover:bg-navy-50 sm:right-6"
         >
           <ArrowUp aria-hidden className="size-5" />
-        </motion.button>
+        </m.button>
       )}
     </AnimatePresence>
   );

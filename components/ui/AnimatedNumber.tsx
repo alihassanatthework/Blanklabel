@@ -1,8 +1,22 @@
 "use client";
 
-import { animate, useReducedMotion } from "motion/react";
+import { useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { ease } from "@/lib/motion";
+
+const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
+
+/** Minimal rAF tween (keeps the animation engine out of the initial bundle). Returns a cancel function. */
+function tween(from: number, to: number, ms: number, onUpdate: (v: number) => void) {
+  const start = performance.now();
+  let raf = 0;
+  const step = (now: number) => {
+    const t = Math.min(1, (now - start) / ms);
+    onUpdate(from + (to - from) * easeOut(t));
+    if (t < 1) raf = requestAnimationFrame(step);
+  };
+  raf = requestAnimationFrame(step);
+  return () => cancelAnimationFrame(raf);
+}
 
 /** Number roll on value change (300 ms). Instant swap under reduced motion. */
 export function AnimatedNumber({
@@ -26,13 +40,9 @@ export function AnimatedNumber({
       setDisplay(value);
       return;
     }
-    const controls = animate(from.current, value, {
-      duration,
-      ease: ease.out,
-      onUpdate: (v) => setDisplay(v),
-    });
+    const cancel = tween(from.current, value, duration * 1000, setDisplay);
     from.current = value;
-    return () => controls.stop();
+    return cancel;
   }, [value, reduce, duration]);
 
   return (
@@ -64,17 +74,21 @@ export function CountUp({
       setShown(value);
       return;
     }
+    let cancel = () => {};
     const io = new IntersectionObserver(
       ([e]) => {
         if (e.isIntersecting) {
-          animate(0, value, { duration: 1.2, ease: ease.out, onUpdate: setShown });
+          cancel = tween(0, value, 1200, setShown);
           io.disconnect();
         }
       },
       { threshold: 0.4 },
     );
     io.observe(el);
-    return () => io.disconnect();
+    return () => {
+      io.disconnect();
+      cancel();
+    };
   }, [value, reduce]);
   return (
     <span ref={ref} className={className} style={{ fontVariantNumeric: "tabular-nums" }}>

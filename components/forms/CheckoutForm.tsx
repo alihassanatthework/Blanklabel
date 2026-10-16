@@ -4,7 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Check, CreditCard, Loader2, Lock, Pencil, ShoppingCart, Smartphone, Wallet } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import * as m from "motion/react-m";
+import { AnimatePresence } from "motion/react";
 import { useState } from "react";
 import { useForm, type FieldPath } from "react-hook-form";
 import { z } from "zod";
@@ -280,7 +281,7 @@ export function CheckoutForm() {
 
       <AnimatePresence>
         {processing && (
-          <motion.div
+          <m.div
             role="status"
             aria-live="assertive"
             className="fixed inset-0 z-[70] flex items-center justify-center bg-white/80 backdrop-blur-sm"
@@ -292,7 +293,7 @@ export function CheckoutForm() {
               <Loader2 aria-hidden className="size-10 animate-spin text-navy-700" />
               <p className="font-semibold text-navy-900">Processing your demo order...</p>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>
@@ -303,7 +304,7 @@ function Collapse({ open, children }: { open: boolean; children: React.ReactNode
   return (
     <AnimatePresence initial={false}>
       {open && (
-        <motion.div
+        <m.div
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
@@ -311,7 +312,7 @@ function Collapse({ open, children }: { open: boolean; children: React.ReactNode
           className="overflow-hidden"
         >
           {children}
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

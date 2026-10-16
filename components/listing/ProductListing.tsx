@@ -2,7 +2,8 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { LayoutGrid, List, SlidersHorizontal } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import * as m from "motion/react-m";
+import { AnimatePresence } from "motion/react";
 import { Suspense, useEffect, useMemo, useState } from "react";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Button } from "@/components/ui/Button";
@@ -135,14 +136,15 @@ function ListingView({
           <ActiveFilters value={filter} onChange={change} />
         </div>
 
+        <h2 className="sr-only">Products</h2>
         {result.total === 0 ? (
           <EmptyState onClear={() => change({ sort: filter.sort })} />
         ) : (
           <>
-            <motion.ul layout className={cn("grid gap-5", view === "grid" ? "sm:grid-cols-2 xl:grid-cols-3" : "grid-cols-1")}>
+            <m.ul layout className={cn("grid gap-5", view === "grid" ? "sm:grid-cols-2 xl:grid-cols-3" : "grid-cols-1")}>
               <AnimatePresence mode="popLayout" initial={false}>
                 {shown.map((p) => (
-                  <motion.li
+                  <m.li
                     key={p.id}
                     layout
                     initial={{ opacity: 0, scale: 0.97 }}
@@ -150,10 +152,10 @@ function ListingView({
                     exit={{ opacity: 0, scale: 0.97, transition: { duration: 0.15 } }}
                   >
                     <ProductCard product={p} variant={view} />
-                  </motion.li>
+                  </m.li>
                 ))}
               </AnimatePresence>
-            </motion.ul>
+            </m.ul>
             {shown.length < result.total && (
               <div className="mt-10 flex flex-col items-center gap-2">
                 <p className="text-sm text-ink-600">

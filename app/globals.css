@@ -5,8 +5,11 @@
   --color-navy-900: #0b1f3a;
   --color-navy-700: #1f3a5f;
   --color-navy-50: #eef3f8;
-  --color-action-500: #f26b1d;
-  --color-action-600: #d9570d;
+  /* Spec values #F26B1D / #D9570D give 3.0:1 with white text; CTA/price tokens are darkened to pass WCAG AA (4.5:1).
+     The original bright orange stays available as action-bright for accents on navy and decorative fills. */
+  --color-action-500: #b94d0e;
+  --color-action-600: #9e410b;
+  --color-action-bright: #f26b1d;
   --color-teal-600: #2e7d6b;
   --color-ink-900: #111827;
   --color-ink-600: #4b5563;
@@ -30,6 +33,7 @@
   --color-navy-50: var(--color-navy-50);
   --color-action-500: var(--color-action-500);
   --color-action-600: var(--color-action-600);
+  --color-action-bright: var(--color-action-bright);
   --color-teal-600: var(--color-teal-600);
   --color-ink-900: var(--color-ink-900);
   --color-ink-600: var(--color-ink-600);
