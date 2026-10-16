@@ -29,7 +29,7 @@ export function CompareTray() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: reduce ? 0 : 24 }}
           transition={{ duration: 0.22 }}
-          className="fixed inset-x-3 bottom-3 z-30 mx-auto max-w-3xl rounded-[16px] border border-line bg-white p-3 shadow-lg sm:inset-x-6"
+          className="fixed inset-x-3 bottom-3 z-30 mx-auto max-w-3xl rounded-[16px] border border-line bg-white p-3 shadow-lg sm:inset-x-6 [[data-stickybar]_&]:bottom-[84px] lg:[[data-stickybar]_&]:bottom-3"
           data-compare-tray
         >
           <div className="flex items-center gap-3">
