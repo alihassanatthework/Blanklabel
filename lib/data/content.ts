@@ -1,4 +1,3 @@
-import accountJson from "@/data/account.json";
 import faqsJson from "@/data/faqs.json";
 import materialsJson from "@/data/materials.json";
 import newsJson from "@/data/news.json";
@@ -14,6 +13,3 @@ export const news = (newsJson as NewsArticle[]).slice().sort((a, b) => b.date.lo
 export const printers = printersJson as Printer[];
 export const materials = materialsJson.materials as MaterialRow[];
 export const swatches = materialsJson.swatches as Swatch[];
-
-export type AccountSource = Omit<typeof accountJson, "_note">;
-export const accountSource = accountJson as AccountSource;

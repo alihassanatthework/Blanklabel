@@ -263,14 +263,12 @@ function FanfoldSide() {
 function Page({
   format,
   widthIn,
-  lengthIn,
   labelsPerSheet = 1,
   detail,
   accent,
 }: {
   format: "sheet" | "integrated";
   widthIn: number;
-  lengthIn: number;
   labelsPerSheet?: number;
   detail: boolean;
   accent?: string;
@@ -379,11 +377,11 @@ export function ProductVisual({
       ) : format === "fanfold" ? (
         <FanfoldSide />
       ) : (
-        <Page format={format} widthIn={widthIn} lengthIn={lengthIn} labelsPerSheet={labelsPerSheet} detail={false} accent={accent} />
+        <Page format={format} widthIn={widthIn} labelsPerSheet={labelsPerSheet} detail={false} accent={accent} />
       );
   else if (format === "fanfold") body = <Fanfold widthIn={widthIn} lengthIn={lengthIn} detail={detail} accent={accent} />;
   else if (format === "roll") body = <Roll widthIn={widthIn} lengthIn={lengthIn} core={core} detail={detail} accent={accent} />;
-  else body = <Page format={format} widthIn={widthIn} lengthIn={lengthIn} labelsPerSheet={labelsPerSheet} detail={detail} accent={accent} />;
+  else body = <Page format={format} widthIn={widthIn} labelsPerSheet={labelsPerSheet} detail={detail} accent={accent} />;
 
   return (
     <svg
