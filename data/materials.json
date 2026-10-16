@@ -1,0 +1,22 @@
+{
+  "_note": "ASSUMPTION A6: live Materials & Colors content was not captured.",
+  "materials": [
+    { "id": "direct-thermal", "name": "Direct Thermal", "ribbon": "No - prints with heat only",
+      "durability": "6-12 months; fades with heat and sunlight", "bestFor": "Shipping labels, receipts, short-life barcodes",
+      "printers": "Rollo, Zebra, Eltron, MUNBYN, Dymo 4XL, Brother" },
+    { "id": "thermal-transfer", "name": "Thermal Transfer", "ribbon": "Yes - wax or wax/resin ribbon",
+      "durability": "Years; resists heat, abrasion and light", "bestFor": "Inventory, asset tags, product and pallet barcodes",
+      "printers": "Zebra, Eltron (ribbon printers)" },
+    { "id": "laser-inkjet", "name": "Laser/Inkjet Paper", "ribbon": "No - toner or ink",
+      "durability": "Years indoors", "bestFor": "Integrated shipping labels, address and FBA labels",
+      "printers": "Any office laser or inkjet printer" }
+  ],
+  "swatches": [
+    { "id": "white", "name": "White", "hex": "#FFFFFF", "availability": "All materials - in stock" },
+    { "id": "yellow", "name": "Yellow", "hex": "#FDE68A", "availability": "Available on request" },
+    { "id": "blue", "name": "Blue", "hex": "#93C5FD", "availability": "Available on request" },
+    { "id": "green", "name": "Green", "hex": "#86EFAC", "availability": "Available on request" },
+    { "id": "pink", "name": "Pink", "hex": "#F9A8D4", "availability": "Available on request" },
+    { "id": "orange", "name": "Orange", "hex": "#FDBA74", "availability": "Available on request" }
+  ]
+}

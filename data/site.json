@@ -1,0 +1,22 @@
+{
+  "name": "BlankLabels.com",
+  "phone": "1-800-246-8805",
+  "phoneHref": "tel:+18002468805",
+  "email": "info@blanklabels.com",
+  "address": { "line1": "3700 Rose Lake Drive", "city": "Charlotte", "state": "NC", "zip": "28217", "country": "USA" },
+  "hours": "Mon-Fri 8am-5pm ET",
+  "_assumptions": "A3: shipping/returns values from the eBay store. Hours and expedited price are assumptions.",
+  "announcements": [
+    { "text": "Free US shipping on every order", "href": "/shipping" },
+    { "text": "Made in USA - factory-direct prices" },
+    { "text": "Found it cheaper? We'll beat it.", "href": "/about#price-beat" }
+  ],
+  "freeShipping": true,
+  "shippingLabel": "Free US shipping",
+  "returnsDays": 60,
+  "returnsLabel": "60-day returns",
+  "expeditedShipping": 14.95,
+  "promoCodes": { "WELCOME10": 0.1 },
+  "social": [],
+  "ebay": { "ratings": "60,000+", "positive": "99.7%" }
+}

@@ -1,7 +1,8 @@
 export type Material = "direct-thermal" | "thermal-transfer" | "laser-inkjet";
 export type Format = "fanfold" | "roll" | "sheet" | "integrated";
 export type PrinterId = "rollo" | "zebra" | "eltron" | "munbyn" | "dymo-4xl" | "brother" | "laser-inkjet";
-export type BadgeId = "made-in-usa" | "best-seller" | "bulk-save" | "new";
+export type Use = "shipping" | "barcode" | "address";
+export type BadgeId ="made-in-usa" | "best-seller" | "bulk-save" | "new";
 
 export interface Category {
   id: string;
@@ -52,6 +53,7 @@ export interface Product {
   assumed: boolean;
   relatedIds: string[];
   bestSellerGroup?: "shipping" | "barcode" | "sheets";
+  uses: Use[]; // printer finder step 3 mapping
   sortRank: number; // lower = better selling
   createdAt: string; // ISO date, used for 'Newest'
 }
@@ -72,6 +74,9 @@ export interface ProductFilter {
   width?: string[];
   length?: string[];
   size?: string; // e.g. '4x6'
+  model?: string; // printer model from the finder
+  use?: Use; // printer finder step 3
+  q?: string;
   perSheet?: string[]; // labels per sheet
   priceMin?: number;
   priceMax?: number;
@@ -105,6 +110,7 @@ export interface SearchResult {
 
 export interface Faq {
   id: string;
+  scope: "home" | "custom";
   q: string;
   a: string;
 }

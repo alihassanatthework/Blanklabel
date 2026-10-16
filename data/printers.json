@@ -1,0 +1,9 @@
+[
+  { "id": "rollo", "name": "Rollo", "models": ["Standard", "Wireless"] },
+  { "id": "zebra", "name": "Zebra", "models": ["GK420d", "ZD410/ZD421", "LP2844", "Industrial"] },
+  { "id": "eltron", "name": "Eltron", "models": ["Any model"] },
+  { "id": "munbyn", "name": "MUNBYN", "models": ["Any model"] },
+  { "id": "dymo-4xl", "name": "Dymo 4XL", "models": ["Any model"] },
+  { "id": "brother", "name": "Brother", "models": ["Any model"] },
+  { "id": "laser-inkjet", "name": "Laser/Inkjet", "models": ["Any model"] }
+]

@@ -1,0 +1,18 @@
+[
+  { "id": "r1", "name": "Jasmine T.", "business": "Poshmark reseller", "rating": 5, "product": "4x6 DT Fanfold (500)", "source": "demo",
+    "text": "Fed straight into my Rollo with zero jams. Way better than the imported stacks I was buying before." },
+  { "id": "r2", "name": "Mark D.", "business": "3PL warehouse", "rating": 5, "product": "4x6 DT Roll 3in (1,000)", "source": "demo",
+    "text": "Consistent rolls case after case on our Zebra industrial printers. Shipping was fast and free." },
+  { "id": "r3", "name": "Priya S.", "business": "Etsy candle shop", "rating": 5, "product": "Address Labels 30/sheet", "source": "demo",
+    "text": "Lined up perfectly with my Word template on the first try. Crisp white labels." },
+  { "id": "r4", "name": "Daniel R.", "business": "eBay power seller", "rating": 5, "product": "eBay/PayPal Integrated", "source": "demo",
+    "text": "Label and receipt on one sheet saves me a step on every order. Peels clean every time." },
+  { "id": "r5", "name": "Angela M.", "business": "Amazon FBA seller", "rating": 4, "product": "FBA Labels 6/sheet", "source": "demo",
+    "text": "Exactly the FBA layout. The adhesive holds on cardboard cartons even in a cold warehouse." },
+  { "id": "r6", "name": "Chris L.", "business": "Auto parts store", "rating": 5, "product": "2x1 DT Rolls (case)", "source": "demo",
+    "text": "We go through a case a month on our Zebras. Price per label beat our old supplier and they called to confirm the order." },
+  { "id": "r7", "name": "Tom B.", "business": "Brewery", "rating": 5, "product": "4x3 TT Roll", "source": "demo",
+    "text": "Thermal transfer labels survive the cooler and condensation. Barcodes still scan months later." },
+  { "id": "r8", "name": "Renee K.", "business": "Shopify store", "rating": 5, "product": "4x6 DT Fanfold (2,000)", "source": "demo",
+    "text": "Made in the USA and cheaper than what I paid on Amazon. Reordering takes me ten seconds." }
+]

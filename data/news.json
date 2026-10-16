@@ -1,0 +1,39 @@
+[
+  { "slug": "holiday-shipping-tips", "title": "Holiday shipping tips for small sellers", "date": "2026-10-02", "readMinutes": 5, "category": "Shipping",
+    "excerpt": "Carrier cut-off dates, label stock planning and five habits that keep peak-season orders moving.",
+    "body": [
+      "Peak season can double or triple your daily order count. The sellers who stay calm in December are the ones who plan their supplies in October.",
+      "## Stock labels before you need them",
+      "Count how many labels you used last November and December, then add 30%. Fanfold stacks of 2,000 mean fewer reloads on busy days, and tier pricing means the extra stock costs less per label.",
+      "## Know the carrier cut-offs",
+      "USPS, UPS and FedEx publish holiday shipping deadlines every year. Put them on your calendar and on your store banner so customers order in time.",
+      "## Batch your printing",
+      "Print labels in batches instead of one by one. Integrated labels with paper receipts let you print the packing slip and label in one pass.",
+      "## Keep a spare printer path",
+      "If your thermal printer goes down, laser half-sheet labels keep orders moving from any office printer."
+    ] },
+  { "slug": "direct-thermal-vs-thermal-transfer", "title": "Direct thermal vs thermal transfer: which label do you need?", "date": "2026-09-12", "readMinutes": 4, "category": "Guides",
+    "excerpt": "Ribbon or no ribbon? How long the print lasts, which printers you need and what each material is best for.",
+    "body": [
+      "Both materials print with heat, but they work very differently - and choosing the right one saves money and headaches.",
+      "## Direct thermal",
+      "Direct thermal labels have a heat-sensitive coating that darkens where the print head touches it. No ribbon, no ink. They are ideal for shipping labels that only need to last a few weeks to a few months.",
+      "## Thermal transfer",
+      "Thermal transfer printers melt ink from a ribbon onto the label. The image lasts for years and resists heat, sunlight and abrasion - the right choice for inventory, asset tags and product barcodes.",
+      "## Quick rule of thumb",
+      "If it ships, choose direct thermal. If it stays on a shelf, a pallet or a product for months, choose thermal transfer."
+    ] },
+  { "slug": "how-to-load-fanfold-labels", "title": "How to load fanfold labels in your thermal printer", "date": "2026-08-21", "readMinutes": 3, "category": "How-to",
+    "excerpt": "A two-minute setup for Rollo, Zebra and other desktop printers - plus how to avoid jams and skipped labels.",
+    "body": [
+      "Fanfold labels feed from a stack behind or under the printer, so there is no spindle to fight with.",
+      "## 1. Place the stack",
+      "Set the stack behind the printer with the label side facing up and the first label pointing toward the feed slot.",
+      "## 2. Feed the first label",
+      "Open the printer, pull the first label through the rear slot and guide it under the sensor. Adjust the guides so they touch the liner edges without squeezing.",
+      "## 3. Calibrate",
+      "Close the printer and run the auto-calibration (on most Rollo and Zebra models, hold the feed button). The printer will find the gap between labels.",
+      "## Avoiding jams",
+      "Keep the stack square and directly behind the slot, and do not let the folded stack lean against a wall."
+    ] }
+]

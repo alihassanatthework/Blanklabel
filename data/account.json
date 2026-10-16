@@ -1,0 +1,19 @@
+{
+  "_note": "Demo customer. Order dates are stored as daysAgo and resolved relative to today.",
+  "name": "Sarah Mitchell",
+  "firstName": "Sarah",
+  "email": "sarah@example.com",
+  "company": "Sarah's Closet Resale",
+  "persona": "Rollo Wireless seller",
+  "savedPrinters": ["Rollo Wireless"],
+  "addresses": [
+    { "id": "a1", "label": "Shipping (default)", "name": "Sarah Mitchell", "line1": "1420 Elm Street", "city": "Raleigh", "state": "NC", "zip": "27601" },
+    { "id": "a2", "label": "Billing", "name": "Sarah's Closet Resale", "line1": "PO Box 2210", "city": "Raleigh", "state": "NC", "zip": "27602" }
+  ],
+  "orders": [
+    { "orderNumber": "BL-104821", "daysAgo": 9, "status": "Shipped", "lines": [{ "productId": "p-dtf-4060-500", "qty": 4 }, { "productId": "p-sl-30", "qty": 1 }] },
+    { "orderNumber": "BL-103977", "daysAgo": 41, "status": "Delivered", "lines": [{ "productId": "p-dtf-4060-500", "qty": 4 }] },
+    { "orderNumber": "BL-103102", "daysAgo": 78, "status": "Delivered", "lines": [{ "productId": "p-dtf-4060-2000", "qty": 1 }, { "productId": "p-int-pp", "qty": 1 }] },
+    { "orderNumber": "BL-102265", "daysAgo": 120, "status": "Delivered", "lines": [{ "productId": "p-dtf-4060-500", "qty": 1 }] }
+  ]
+}
